@@ -1,5 +1,8 @@
 FROM node:16-alpine
 
+# 必要なパッケージをインストール
+RUN apk add --no-cache python3 make g++
+
 COPY . /home/node/webapp
 
 RUN cd /home/node/webapp; \
