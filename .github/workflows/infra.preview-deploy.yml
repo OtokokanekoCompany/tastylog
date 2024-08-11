@@ -91,4 +91,14 @@ jobs:
       - name: Terraform init
         run: |
           terraform init -no-color
-
+      - name: Terraform apply
+        run: |
+          terraform plan \
+            -var 'project=${{ env.TF_PROJECT }}' \
+            -var 'environment=${{ env.TF_ENV }}' \
+            -var 'username=${{ secrets.MYSQL_USERNAME }}' \
+            -var 'password=${{ secrets.MYSQL_PASSWROD }}' \
+            -input=false \
+            -no-color \
+            -auto-approve
+            
