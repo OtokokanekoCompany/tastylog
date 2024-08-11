@@ -92,6 +92,7 @@ jobs:
         run: |
           terraform init -no-color
       - name: Terraform apply
+        id: apply
         run: |
           terraform apply \
             -var 'project=${{ env.TF_PROJECT }}' \
@@ -101,3 +102,8 @@ jobs:
             -input=false \
             -no-color \
             -auto-approve
+      - name: echo
+        if: always()
+        run: |
+          echo ${{ steps.apply.outcome }}
+
