@@ -47,7 +47,7 @@ jobs:
       - name: Terraform validate
         run: |
           terrafrom validate -no-color
-          
+
 
 
 
