@@ -74,6 +74,9 @@ jobs:
     environment: production
     runs-on: ubuntu-latest
     steps:
+      - name: echo output
+        run: |
+          echo ${{ needs.preview.outputs.TF_PLAN_EXITCODE }}
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup terraform
